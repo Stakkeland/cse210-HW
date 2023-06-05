@@ -17,15 +17,15 @@ class Program
 
             if (guess == num)
             {
-                Console.WriteLine("You guessed it!");
+                Console.WriteLine("You guessed it!!!!!");
             }
             else if (guess > num)
             {
-                Console.WriteLine("Lower");
+                Console.WriteLine("Lower!");
             }
             else
             {
-                Console.WriteLine("Higher");
+                Console.WriteLine("Higher!");
             }
         }
 
