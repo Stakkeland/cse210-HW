@@ -1,10 +1,15 @@
 
 public class Prompts
 {
-    public List<> _prompts = new List<>();
+    List<string> _prompts;
+
+    public Prompts()
+    {
+
+    }
 
     public string GetRandomPrompt()
     {
-
+        return "";
     }
 }
