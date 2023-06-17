@@ -2,7 +2,7 @@
 
 public class Journal
 {
-    public List<> _entries = new List<>();
+    List<Entry> _entries;
 
     public void AddEntry()
     {
