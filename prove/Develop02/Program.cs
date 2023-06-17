@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         int answer = 0;
+        Journal journal = new Journal();
         while (answer != 5)
         {
             string multiline = @"Please select one of the following:
@@ -23,22 +24,27 @@ class Program
                 string prompt = new Prompts().GetRandomPrompt();
                 Console.WriteLine(prompt);
                 Console.Write("> ");
-                return;
+                string response = Console.ReadLine();
+                string date = DateTime.Now.Date.ToString("MMM dd, yyyy");
+
+                Entry entry = new Entry(date, prompt, response);
+                journal.AddEntry(entry);
             }
             else if (answer == 2)
             {
-                //journal class
-                return;
+                journal.DisplayAll();
             }
             else if (answer == 3)
             {
-                //journal class
-                return;
+                Console.WriteLine("Name of file to load?");
+                string fileName = Console.ReadLine();
+                journal.LoadFromFile(fileName);
             }
             else if (answer == 4)
             {
-                //journal class
-                return;
+                Console.WriteLine("Name of file to save?");
+                string fileName = Console.ReadLine();
+                journal.SaveToFile(fileName);
             }
             else if (answer == 5)
             {
