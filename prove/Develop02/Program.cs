@@ -12,14 +12,17 @@ class Program
             2.Display journal
             3.Save
             4.Load journal
-            5.Quit";
+            5.Quit
+            What would you like to do? ";
             Console.WriteLine(multiline);
             string answerInText = Console.ReadLine();
             answer = int.Parse(answerInText);
 
             if (answer == 1)
             {
-                //Entry class
+                string prompt = new Prompts().GetRandomPrompt();
+                Console.WriteLine(prompt);
+                Console.Write("> ");
                 return;
             }
             else if (answer == 2)
