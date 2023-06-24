@@ -2,24 +2,45 @@
 class Scripture
 {
     //variables
-    private string _reference;
-    List<Words> _words;
+    Reference _reference;
+    List<Word> _words;
 
     //constructor
-    public Scripture (Reference _reference, string _text)
+    public Scripture (Reference reference, string text)
     {
+        _reference = reference;
+        _words = new List<Word>();
 
+        List<string> allWords = text.Split(' ').ToList();
+        foreach(string wordString in allWords)
+        {
+            Word newWord = new Word(wordString);
+            _words.Add(newWord);
+        }
     }
 
     //methods
-    private void HideRandomWords()
+    public void HideRandomWords()
     {
 
     }
 
     public string GetDisplayText()
     {
-        return "";
+        string scriptureText = "";
+
+        foreach (Word word in _words)
+        {
+            if(word.IsHidden() == false)
+            {
+                scriptureText += word.GetDisplayText() + " ";
+            }
+            else
+            {
+                scriptureText += new string('_', word.GetDisplayText().Length) + " ";
+            }
+        }
+        return ($"{_reference.GetDisplayText()} {scriptureText}");
     }
 
     public bool IsCompletelyHidden()
