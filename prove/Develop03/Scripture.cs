@@ -23,9 +23,14 @@ class Scripture
     public void HideRandomWords()
     {
         var random = new Random();
+
         for (int i = 0; i < 3; i++) 
         {
-            
+            //foreach (Word word in _words)
+           // {
+        int index = random.Next(_words.Count);
+        _words[index].Hide();
+            //}
         }
         
     }
