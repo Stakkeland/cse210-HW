@@ -22,7 +22,12 @@ class Scripture
     //methods
     public void HideRandomWords()
     {
-
+        var random = new Random();
+        for (int i = 0; i < 3; i++) 
+        {
+            
+        }
+        
     }
 
     public string GetDisplayText()
