@@ -71,9 +71,4 @@ class Scripture
         }
         return ($"{_reference.GetDisplayText()} {scriptureText}");
     }
-
-    public bool IsCompletelyHidden()
-    {
-        return true;
-    }
 }
