@@ -3,7 +3,7 @@ class Word
 {
     //variables
     private string _text;
-    private bool _isHidden;
+    public bool _isHidden;
 
     //constructor
     public Word (string text)

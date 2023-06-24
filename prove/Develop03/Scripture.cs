@@ -4,6 +4,7 @@ class Scripture
     //variables
     private Reference _reference;
     private List<Word> _words;
+    private List<int> usedNums = new List<int>();
 
     //constructor
     public Scripture (Reference reference, string text)
@@ -26,11 +27,22 @@ class Scripture
 
         for (int i = 0; i < 3; i++) 
         {
-            //foreach (Word word in _words)
-           // {
-        int index = random.Next(_words.Count);
-        _words[index].Hide();
-            //}
+            int reloop = 0;
+            while (reloop == 0)
+            {
+                int index = random.Next(_words.Count);
+
+                if (usedNums.Contains(index) == false)
+                {
+                    _words[index].Hide();
+                    usedNums.Add(index);
+                    reloop = 1; 
+                }
+                else
+                {
+                    reloop = 0;
+                }
+            }
         }
         
     }
@@ -55,6 +67,14 @@ class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return true;
+        if (usedNums.Count() == 18)
+        {
+            Console.Clear();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
