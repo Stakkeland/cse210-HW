@@ -1,5 +1,5 @@
 
-public class Reference
+class Reference
 {
     //variables
     private string _book;
@@ -22,6 +22,6 @@ public class Reference
     //methods
     public string GetDisplayText()
     {
-        return;
+        return "";
     }
 }

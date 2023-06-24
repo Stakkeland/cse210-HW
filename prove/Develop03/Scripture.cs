@@ -1,12 +1,12 @@
 
-public class Scripture
+class Scripture
 {
     //variables
     private string _reference;
-    List<string> _words;
+    List<Words> _words;
 
     //constructor
-    public Scripture ()
+    public Scripture (Reference _reference, string _text)
     {
 
     }
@@ -19,11 +19,11 @@ public class Scripture
 
     public string GetDisplayText()
     {
-        return;
+        return "";
     }
 
     public bool IsCompletelyHidden()
     {
-        return;
+        return true;
     }
 }

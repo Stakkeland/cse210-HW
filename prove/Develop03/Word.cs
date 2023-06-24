@@ -1,12 +1,12 @@
 
-public class Words
+class Words
 {
     //variables
     private string _text;
     private bool _isHidden;
 
     //constructor
-    public Words ()
+    public Words (string _text)
     {
 
     }
@@ -24,11 +24,11 @@ public class Words
 
     public bool IsHidden()
     {
-        return;
+        return true;
     }
 
     public string GetDisplayText()
     {
-        return;
+        return "";
     }
 }
