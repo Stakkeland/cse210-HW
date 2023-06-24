@@ -2,8 +2,8 @@
 class Scripture
 {
     //variables
-    Reference _reference;
-    List<Word> _words;
+    private Reference _reference;
+    private List<Word> _words;
 
     //constructor
     public Scripture (Reference reference, string text)
