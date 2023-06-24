@@ -16,7 +16,6 @@ class Program
             Console.WriteLine("Press enter to continue or type 'quit' to finish");
             userInput = Console.ReadLine();
             scripture.HideRandomWords();
-            scripture.IsCompletelyHidden();
         }
     }
 }

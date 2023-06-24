@@ -40,7 +40,14 @@ class Scripture
                 }
                 else
                 {
-                    reloop = 0;
+                    if (usedNums.Count() == 18)
+                    {
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        reloop = 0;
+                    }
                 }
             }
         }
@@ -67,14 +74,6 @@ class Scripture
 
     public bool IsCompletelyHidden()
     {
-        if (usedNums.Count() == 18)
-        {
-            Console.Clear();
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return true;
     }
 }
