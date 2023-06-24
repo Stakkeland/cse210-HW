@@ -6,7 +6,7 @@ class Program
     {
         string userInput = "";
 
-        while (userInput != "quit");
+        while (userInput != "quit")
         {
             Console.WriteLine("Press enter to continue or type 'quit' to finish");
             userInput = Console.ReadLine();
