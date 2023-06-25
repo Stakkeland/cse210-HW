@@ -1,5 +1,5 @@
 
-class Assignment
+public class Assignment
 {
     //attributes
     private string _studentName;
@@ -8,8 +8,8 @@ class Assignment
     //constructor
     public Assignment(string studentName, string topic)
     {
-        _studentName = studentName;
-        _topic = topic;
+        _studentName    = studentName;
+        _topic          = topic;
     }
 
     //methods
