@@ -2,7 +2,7 @@
 public class Assignment
 {
     //attributes
-    private string _studentName;
+    protected string _studentName;
     private string _topic;
 
     //constructor
