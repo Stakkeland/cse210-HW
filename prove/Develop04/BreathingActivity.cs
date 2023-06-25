@@ -1,13 +1,17 @@
 
-class BreathingActivity
+class BreathingActivity : Activity
 {
-    //attributes
 
     //constructor
-    public BreathingActivity()
+    public BreathingActivity(string name, string description, int duration) : base(name,description,duration)
     {
 
     }
+
     //methods
+    public void Run()
+    {
+
+    }
     
 }
