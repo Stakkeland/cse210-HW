@@ -2,9 +2,9 @@
 class Activity
 {
     //attributes
-    private string _name;
-    private string _description;
-    private int _duration;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
 
     //constructor
     public Activity(string name, string description, int duration)
@@ -17,7 +17,11 @@ class Activity
     //methods
     public void DisplayStartingMessage()
     {
-
+        Console.WriteLine($"Welcome to the {_name}."
+        + " "
+        + $"{_description}"
+        + " "
+        + "How long in seconds, would you like for your sesion? ");
     }
     public void DisplayEndingMessage()
     {
