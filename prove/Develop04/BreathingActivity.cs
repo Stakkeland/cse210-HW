@@ -3,19 +3,30 @@ class BreathingActivity : Activity
 {
 
     //constructor
-    public BreathingActivity(string name, string description, int duration) : base(name,description,duration)
+    public BreathingActivity()
     {
-        _name = name;
-        _description = description;
-        _duration = duration;
+        this.SetActivityName("Breathing Activity");
+        this.SetDescription("This activity will help you relax by walking you" +
+        "through breathing in and out slowly." +
+        "Clear your mind and focus on your breathing");
     }
 
     //methods
     public void Run()
     {
         DisplayStartingMessage();
-        string answerInText = Console.ReadLine();
-        _duration = int.Parse(answerInText);
+        int interval = GetDuration() / 6;
+        for (int i = 0; i <= 2; i++)
+        {
+            Console.WriteLine();
+            Console.Write("Breath in...");
+            ShowCountDown(interval);
+            Console.WriteLine();
+            Console.Write("Breath out...");
+            ShowCountDown(interval);
+            Console.WriteLine();
+        }
+        DisplayEndingMessage();
 
     }
     

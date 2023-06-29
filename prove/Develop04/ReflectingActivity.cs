@@ -1,15 +1,15 @@
 
-class ReflectingActivity : Activity
+class ReflectingActivity
 {
     //attributes
-    private List<string> _prompts;
-    private List<string> _questions;
+    private List<string> prompts;
+    private List<string> questions;
 
     //constructor
-    public ReflectingActivity(List<string> prompts, List<string> questions, string name, string description, int duration) : base(name, description,duration)
+    public ReflectingActivity() //(List<string> prompts, List<string> questions, string name, string description, int duration)
     {
-        _prompts = prompts;
-        _questions = questions;
+        //_prompts = prompts;
+        //_questions = questions;
     }
 
     //methods

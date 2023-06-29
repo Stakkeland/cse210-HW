@@ -1,15 +1,15 @@
 
-class ListingActivity : Activity
+class ListingActivity //: Activity
 {
     //attributes
-    private int _count;
-    private List<string> _prompts;
+    private int count;
+    private List<string> prompts;
 
     //constructor
-    public ListingActivity(int count, List<string> prompts, string name, string description, int duration) : base(name, description, duration)
+    public ListingActivity() //(int count, List<string> prompts, string name, string description)
     {
-        _count = count;
-        _prompts = prompts;
+       // _count = count;
+       // _prompts = prompts;
     }
 
     //methods
