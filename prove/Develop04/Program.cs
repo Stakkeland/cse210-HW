@@ -21,19 +21,20 @@ class Program
 
             if (userInput == "1")
             {
-                BreathingActivity bl1 = new BreathingActivity();
-                bl1.Run();
+                BreathingActivity ba1 = new BreathingActivity();
+                ba1.Run();
             }
 
             else if (userInput == "2")
             {
-                ReflectingActivity rl1 = new ReflectingActivity();
-                rl1.Run();
+                ReflectingActivity ra1 = new ReflectingActivity();
+                ra1.Run();
             }
 
             else if (userInput == "3")
             {
-                break;
+                ListingActivity la1 = new ListingActivity();
+                la1.Run();
             }
 
             else if (userInput == "4")
