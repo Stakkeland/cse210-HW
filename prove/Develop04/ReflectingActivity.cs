@@ -13,23 +13,29 @@ class ReflectingActivity : Activity
         "you have shown strength and resilience. This will help you recognize the power" +
         "you have and how you can use it in other aspects of your life.");
 
-         prompts = new List<string>
+        prompts = new List<string>
         {
             "Think of a time you did something very difficult",
             "Ponder on your greatest triumph",
             "Think of the importance of your family",
             "Ponder on your greatest failure",
-            "Think of how you could be better",
-            "Ponder on a time you felt best about yourself",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you did something truly selfless.",
         };
 
-         questions = new List<string>
+        questions = new List<string>
         {
             "How did you feel about this experience",
             "what is your favorite things about this experience",
             "How would you be different without this experience",
             "How have you grown from this",
-            "What got you to accomplish/experience this?",
+            "What made this time different than other times when you were not as successful?",
+            "What is your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other situations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?",
         };
     }
 
