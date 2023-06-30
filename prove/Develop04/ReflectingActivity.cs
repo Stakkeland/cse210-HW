@@ -36,35 +36,10 @@ class ReflectingActivity : Activity
     //methods
     public void Run()
     {
-        string userInput = "no";
-
         DisplayStartingMessage();
         int interval = GetDuration();
-        int timer = interval;
-
-        Console.WriteLine("Consider the following prompt:");
-        string prompt = new ReflectingActivity().GetRandomPrompt();
-        Console.WriteLine($"---{prompt}---");
-
-        while (userInput != "continue")
-        {
-            Console.WriteLine("When you have something in mind, type continue to move on.");
-            userInput = Console.ReadLine();
-        }
-
-        Console.WriteLine("Now ponder on each of the following questions as they relate to the experience.");
-        Console.WriteLine("You may begin in:");
-        ShowCountDown(3);
-
-        while (timer > 0)
-        {
-            string question = new ReflectingActivity().GetRandomQuestion();
-            Console.WriteLine($">{question}");
-            ShowSpinner(5);
-
-            timer -= 5;
-        }
-
+        DisplayPrompt();
+        DisplayQuestions(interval);
         DisplayEndingMessage();
     }
     public string GetRandomPrompt()
@@ -89,11 +64,32 @@ class ReflectingActivity : Activity
     }
     public void DisplayPrompt()
     {
+        string userInput = "no";
 
+        Console.WriteLine("Consider the following prompt:");
+        string prompt = new ReflectingActivity().GetRandomPrompt();
+        Console.WriteLine($"---{prompt}---");
+
+        while (userInput != "continue")
+        {
+            Console.WriteLine("When you have something in mind, type continue to move on.");
+            userInput = Console.ReadLine();
+        }
     }
-    public void DisplayQuestions()
+    public void DisplayQuestions(int time)
     {
+        Console.WriteLine("Now ponder on each of the following questions as they relate to the experience.");
+        Console.WriteLine("You may begin in:");
+        ShowCountDown(3);
 
+        while (time > 0)
+        {
+            string question = new ReflectingActivity().GetRandomQuestion();
+            Console.WriteLine($">{question}");
+            ShowSpinner(5);
+
+            time -= 5;
+        }
     }
     
 }
