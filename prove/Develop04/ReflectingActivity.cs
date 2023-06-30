@@ -43,9 +43,9 @@ class ReflectingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        int interval = GetDuration();
+        int timer = GetDuration();
         DisplayPrompt();
-        DisplayQuestions(interval);
+        DisplayQuestions(timer);
         DisplayEndingMessage();
     }
     public string GetRandomPrompt()

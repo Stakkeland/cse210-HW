@@ -9,6 +9,7 @@ class ListingActivity : Activity
     //constructor
     public ListingActivity()
     {
+
         this.SetActivityName("Listing Activity");
         this.SetDescription("This activity will help you reflect on the good things in your life by having you" +
         "list as many things as you can in a certain area.");
@@ -32,27 +33,29 @@ class ListingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        int interval = GetDuration();
+        int timer = GetDuration();
         Console.WriteLine("List as many responses you can to the following prompt:");
-        GetRandomPrompt();
+        DisplayPrompt();
         Console.WriteLine("You may begin in:");
         ShowCountDown(5);
 
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(interval);
-        Thread.Sleep(3000);
+        DateTime futureTime = startTime.AddSeconds(timer);
+        Thread.Sleep(2000);
         DateTime currentTime = DateTime.Now;
 
-        if (currentTime < futureTime)
+        while (currentTime < futureTime)
         {
             Console.WriteLine(">");
             string newAnswer = Console.ReadLine();
             answers.Add(newAnswer);
+            currentTime = DateTime.Now;
         }
 
-        int items = answers.Count();
-        Console.WriteLine($"You listed {items} items!");
+        count = answers.Count();
+        Console.WriteLine($"You listed {count} items!");
         Console.WriteLine(" ");
+
         DisplayEndingMessage();
 
     }
@@ -62,11 +65,15 @@ class ListingActivity : Activity
         int randomIndex = new Random().Next(prompts.Count);
 
         randomPrompt = prompts[randomIndex];
-        string formattedPrompt = $"---{randomPrompt}---";
 
-        return formattedPrompt;
+        return randomPrompt;
     }
-    public void GetListFromUser()
+    public void DisplayPrompt()
+    {
+        string prompt = new ReflectingActivity().GetRandomPrompt();
+        Console.WriteLine($"---{prompt}---");
+    }
+    public void GetCount()
     {
 
     }
