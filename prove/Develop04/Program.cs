@@ -7,9 +7,9 @@ class Program
         string userInput = " ";
         string multiline = 
         @"Menu Options:
-        1.Start breathing activity
-        2.Start reflecting activity
-        3.Start listing activity
+        1.Start Breathing Activity
+        2.Start Reflecting Activity
+        3.Start Listing Activity
         4.Quit
         Select a choice from the menu:";
         
@@ -27,7 +27,8 @@ class Program
 
             else if (userInput == "2")
             {
-                break;
+                ReflectingActivity rl1 = new ReflectingActivity();
+                rl1.Run();
             }
 
             else if (userInput == "3")
