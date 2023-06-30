@@ -18,9 +18,11 @@ class Program
             Console.Clear();
             Console.WriteLine(multiline);
             userInput = Console.ReadLine();
+            Console.Clear();
 
             if (userInput == "1")
             {
+                
                 BreathingActivity ba1 = new BreathingActivity();
                 ba1.Run();
             }
