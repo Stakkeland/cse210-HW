@@ -73,7 +73,7 @@ class ReflectingActivity : Activity
         string userInput = "no";
 
         Console.WriteLine("Consider the following prompt:");
-        string prompt = new ReflectingActivity().GetRandomPrompt();
+        string prompt = GetRandomPrompt();
         Console.WriteLine($"---{prompt}---");
 
         while (userInput != "continue")
@@ -90,7 +90,7 @@ class ReflectingActivity : Activity
 
         while (time > 0)
         {
-            string question = new ReflectingActivity().GetRandomQuestion();
+            string question = GetRandomQuestion();
             Console.WriteLine($">{question}");
             ShowSpinner(5);
 

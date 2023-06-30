@@ -46,7 +46,7 @@ class ListingActivity : Activity
 
         while (currentTime < futureTime)
         {
-            Console.WriteLine(">");
+            Console.Write(">");
             string newAnswer = Console.ReadLine();
             answers.Add(newAnswer);
             currentTime = DateTime.Now;
@@ -70,12 +70,8 @@ class ListingActivity : Activity
     }
     public void DisplayPrompt()
     {
-        string prompt = new ReflectingActivity().GetRandomPrompt();
+        string prompt = GetRandomPrompt();
         Console.WriteLine($"---{prompt}---");
-    }
-    public void GetCount()
-    {
-
     }
     
 }
