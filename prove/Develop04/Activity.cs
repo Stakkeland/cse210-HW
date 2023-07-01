@@ -9,6 +9,7 @@ class Activity
     public Activity()
     {
         spinnerCounter = duration = 0;
+
     }
 
     //methods
@@ -39,12 +40,23 @@ class Activity
     }
     public void DisplayEndingMessage()
     {
+        List<string> log = new List<string>()
+        {
+
+        };
+
         Console.WriteLine();
         Console.WriteLine("Well done!!!");
         ShowSpinner(3);
         Console.WriteLine();
         Console.WriteLine($"You have completed another {duration} seconds of the {name}");
-        ShowSpinner(5);
+        ShowSpinner(3);
+
+        log.Add("1");
+        int logTotal = log.Count();
+        Console.WriteLine();
+        Console.WriteLine($"You have performed {logTotal} activites ! Well done !");
+        ShowSpinner(3);
     }
     public void ShowSpinner(int numSecondsToRun)
     {
