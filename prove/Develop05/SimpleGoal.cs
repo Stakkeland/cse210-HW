@@ -10,10 +10,10 @@ public class SimpleGoal : Goal
     }
 
     //methods
-    public override void RecordEvent()
-    {
+    //public override void RecordEvent()
+    //{
 
-    }
+    //}
     public override bool IsComplete()
     {
         return true;
