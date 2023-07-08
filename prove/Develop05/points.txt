@@ -1,1 +1,1 @@
-stream|streaming for hours|150
+program|programming on stream|50|false|5|500

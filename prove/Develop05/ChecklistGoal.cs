@@ -8,7 +8,8 @@ public class ChecklistGoal : Goal
     //constructor
     public ChecklistGoal(string name, string description, string points, int target, int bonus) : base(name, description,points)
     {
-
+        _target = target;
+        _bonus = bonus;
     }
 
     //methods

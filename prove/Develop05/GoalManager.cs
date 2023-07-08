@@ -70,7 +70,7 @@ public class GoalManager
                     Console.Write("What is the amount of bonus points for accomplishing this goal?");
                     int usB = Convert.ToInt32(Console.ReadLine());
 
-                    ChecklistGoal cg1 = new ChecklistGoal(usN, usD, usP, usT, usB );
+                    ChecklistGoal cg1 = new ChecklistGoal(usN, usD, usP, usT, usB);
                     cg1.RecordEvent();
                 }
 
@@ -129,7 +129,17 @@ public class GoalManager
 
             string name = parts[0];
             string description = parts[1];
-            Console.WriteLine($"- [ ] {name} ({description})");
+            string target = parts[4];
+            bool present = target.Contains(" ");
+            if (present == true)
+            {
+                Console.WriteLine($"- [ ] {name} ({description})");
+            }
+            else
+            {
+                Console.WriteLine($"- [ ] {name} ({description}) -- Currently completed: 0/{target}");
+            }
+
         }
 
 
