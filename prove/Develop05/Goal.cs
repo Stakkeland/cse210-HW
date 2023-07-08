@@ -20,8 +20,7 @@ public class Goal
         string entryAsCSV = ($"{_shortName}|{_description}|{_points}|false| ");
         records.Add(entryAsCSV);
 
-
-        File.WriteAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);
+        File.AppendAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);
     }
     public virtual bool IsComplete()
     {

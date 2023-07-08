@@ -1,8 +1,10 @@
+using System.IO; 
 public class GoalManager
 {
     //variables
     private List<Goal> _goals;
-    private int _score;
+    private string _score;
+    private string[] lines2;
 
     //constructor
     public GoalManager()
@@ -28,6 +30,9 @@ public class GoalManager
 
         while (userInput != "6")
         {
+            lines2 = System.IO.File.ReadAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\pointcounter.txt");
+            string convertedscore = lines2[0].ToString();
+            _score = convertedscore;
             Console.WriteLine($"You have {_score} points.");
             Console.WriteLine(" ");
             Console.Write(multiline);
@@ -90,12 +95,14 @@ public class GoalManager
 
             else if (userInput == "4")
             {
-
+                GoalManager gmload = new GoalManager();
+                gmload.LoadGoals();
             }
 
             else if (userInput == "5")
             {
-
+                GoalManager gmrecord = new GoalManager();
+                gmrecord.RecordEvent();
             }
 
             else if (userInput == "6")
@@ -150,15 +157,53 @@ public class GoalManager
     }
     public void RecordEvent()
     {
-        
+        string recordedevent;
+
+        Dictionary<string,string> addingPoints = new Dictionary<string,string>();
+
+        Console.WriteLine("The goals are:");
+        string filename = "points.txt";
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+
+            string name = parts[0];
+            string points = parts[2];
+            addingPoints.Add(name, points);
+
+            Console.WriteLine($"- {name}");
+        }
+
+        Console.Write("What goal do you want to accomplish?");
+        recordedevent = Console.ReadLine();
+        foreach(KeyValuePair<string, string> ele1 in addingPoints)
+        {
+            if (recordedevent == ele1.Key)
+            {
+                string beforeParse = ele1.Value;
+                int addedpoints = Convert.ToInt32(beforeParse);
+
+                string[] lines1 = System.IO.File.ReadAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\pointcounter.txt");
+                int convertedpointcounter = Convert.ToInt32(lines1[0]);
+                int finalnum = addedpoints + convertedpointcounter;
+                string myString = finalnum.ToString();
+                lines1[0] = myString;
+                System.IO.File.WriteAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\pointcounter.txt", lines1);
+
+                Console.WriteLine();
+                Console.WriteLine($"Congratulations! you have earned {addedpoints} points");
+            }
+        }
     }
     public void SaveGoals()
     {
-        
+        Console.Write("You have saved your goals");
     }
     public void LoadGoals()
     {
-        
+        Console.Write("You have loaded your goals");
     }
 
 }
