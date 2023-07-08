@@ -1,2 +1,2 @@
-program|programming on stream in c#|500|false| 
-streaming|streaming every weekday|100|false|5|500
+program|programming|2|false|placeholder|placeholder
+workout|working out|2|false|2|5|2

@@ -3,19 +3,21 @@ public class ChecklistGoal : Goal
     //variables
     private int _target;
     private int _bonus;
+    private int _completions;
 
     //constructor
-    public ChecklistGoal(string name, string description, string points, int target, int bonus) : base(name, description,points)
+    public ChecklistGoal(string name, string description, string points, int target, int bonus, int completions) : base(name, description,points)
     {
         _target = target;
         _bonus = bonus;
+        _completions = completions;
     }
 
     //methods
     public override void RecordEvent()
     {
         List<string> records = new List<string>();
-        string entryAsCSV = ($"{GetName()}|{GetDescription()}|{GetPoints()}|false|{_target}|{_bonus}");
+        string entryAsCSV = ($"{GetName()}|{GetDescription()}|{GetPoints()}|false|{_completions}|{_target}|{_bonus}");
         records.Add(entryAsCSV);
 
 

@@ -75,7 +75,7 @@ public class GoalManager
                     Console.Write("What is the amount of bonus points for accomplishing this goal?");
                     int usB = Convert.ToInt32(Console.ReadLine());
 
-                    ChecklistGoal cg1 = new ChecklistGoal(usN, usD, usP, usT, usB);
+                    ChecklistGoal cg1 = new ChecklistGoal(usN, usD, usP, usT, usB, 0);
                     cg1.RecordEvent();
                 }
 
@@ -136,15 +136,16 @@ public class GoalManager
 
             string name = parts[0];
             string description = parts[1];
-            string target = parts[4];
-            bool present = target.Contains(" ");
+            string completions = parts[4];
+            string target = parts[5];
+            bool present = target.Contains("placeholder");
             if (present == true)
             {
                 Console.WriteLine($"- [ ] {name} ({description})");
             }
             else
             {
-                Console.WriteLine($"- [ ] {name} ({description}) -- Currently completed: 0/{target}");
+                Console.WriteLine($"- [ ] {name} ({description}) -- Currently completed: {completions}/{target}");
             }
 
         }
@@ -171,6 +172,7 @@ public class GoalManager
 
             string name = parts[0];
             string points = parts[2];
+            string completions = parts[4];
             addingPoints.Add(name, points);
 
             Console.WriteLine($"- {name}");
@@ -178,6 +180,36 @@ public class GoalManager
 
         Console.Write("What goal do you want to accomplish?");
         recordedevent = Console.ReadLine();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+
+            string name = parts[0];
+            string completions = parts[4];
+            if (completions == "placeholder")
+            {
+                
+            }
+            else
+            {
+                int completionsInt = Convert.ToInt32(completions);
+
+                if (name == recordedevent)
+                {
+                    int  newCompletions = completionsInt + 1;
+                    string convertedCompletions = newCompletions.ToString();
+                    //string text = File.ReadAllText("points.txt");
+                    //line.Replace(completions, convertedCompletions);
+                    //File.WriteAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", line);
+
+                    string str = File.ReadAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt");
+                    str = str.Replace(completions,convertedCompletions);
+                    File.WriteAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", str);
+                }
+            }
+        }
+
         foreach(KeyValuePair<string, string> ele1 in addingPoints)
         {
             if (recordedevent == ele1.Key)
