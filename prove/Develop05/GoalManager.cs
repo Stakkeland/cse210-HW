@@ -28,10 +28,9 @@ public class GoalManager
 
         while (userInput != "6")
         {
-            Console.Clear();
             Console.WriteLine($"You have {_score} points.");
             Console.WriteLine(" ");
-            Console.WriteLine(multiline);
+            Console.Write(multiline);
             userInput = Console.ReadLine();
             
             if (userInput == "1")
@@ -44,40 +43,49 @@ public class GoalManager
                 3.Checklist Goal
                 Which type of goal would you like to create?: ";
 
-                Console.WriteLine(multiline1);
+                Console.Write(multiline1);
                 userInputGoal = Console.ReadLine();
-                Console.WriteLine("What is the name of your goal?");
+                Console.Write("What is the name of your goal?");
                 string usN = Console.ReadLine();
-                Console.WriteLine("What is a short description of it?");
+                Console.Write("What is a short description of it?");
                 string usD = Console.ReadLine();
-                Console.WriteLine("What is the amount of point associated with this goal?");
+                Console.Write("What is the amount of point associated with this goal?");
                 string usP = Console.ReadLine();
 
                 if (userInputGoal == "1")
                 {
-                    SimpleGoal sg1 = new SimpleGoal(usN, usD, usP);
+                    SimpleGoal sg1 = new SimpleGoal(usN, usD, usP, false);
                     sg1.RecordEvent();
 
                 }
                 else if (userInputGoal == "2")
                 {
-                    
+                    EternalGoal eg1 = new EternalGoal(usN, usD, usP);
+                    eg1.RecordEvent();
                 }
                 else if (userInputGoal == "3")
                 {
-                    
+                    Console.Write("What is the target amount of times to accomplish this goal?");
+                    int usT = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("What is the amount of bonus points for accomplishing this goal?");
+                    int usB = Convert.ToInt32(Console.ReadLine());
+
+                    ChecklistGoal cg1 = new ChecklistGoal(usN, usD, usP, usT, usB );
+                    cg1.RecordEvent();
                 }
 
             }
 
             else if (userInput == "2")
             {
-                
+                GoalManager gmdetail = new GoalManager();
+                gmdetail.ListGoalDetails();
             }
 
             else if (userInput == "3")
             {
-
+                GoalManager gmsave = new GoalManager();
+                gmsave.SaveGoals();
             }
 
             else if (userInput == "4")
@@ -111,7 +119,20 @@ public class GoalManager
     }
     public void ListGoalDetails()
     {
-        
+        Console.WriteLine("The goals are:");
+        string filename = "points.txt";
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+
+            string name = parts[0];
+            string description = parts[1];
+            Console.WriteLine($"- [ ] {name} ({description})");
+        }
+
+
     }
     public void CreateGoal()
     {
