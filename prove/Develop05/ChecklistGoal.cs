@@ -1,7 +1,6 @@
 public class ChecklistGoal : Goal
 {
     //variables
-    private int _amountCompleted;
     private int _target;
     private int _bonus;
 
@@ -20,7 +19,7 @@ public class ChecklistGoal : Goal
         records.Add(entryAsCSV);
 
 
-        File.WriteAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);
+        File.AppendAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);
     }
     public override bool IsComplete()
     {
