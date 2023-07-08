@@ -17,7 +17,7 @@ public class Goal
     public virtual void RecordEvent()
     {
         List<string> records = new List<string>();
-        string entryAsCSV = $"{_shortName}|{_description}|{_points}";
+        string entryAsCSV = ($"{_shortName}|{_description}|{_points}|false");
         records.Add(entryAsCSV);
 
 
@@ -34,5 +34,17 @@ public class Goal
     public virtual string GetStringRepresentation()
     {
         return " ";
+    }
+    public string GetName()
+    {
+        return _shortName;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+    public string GetPoints()
+    {
+        return _points;
     }
 }

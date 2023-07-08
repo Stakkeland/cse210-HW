@@ -4,9 +4,9 @@ public class SimpleGoal : Goal
     private bool _isComplete;
 
     //constructor
-    public SimpleGoal(string name, string description, string points) : base(name, description,points)
+    public SimpleGoal(string name, string description, string points, bool IsComplete) : base(name, description,points)
     {
-
+        IsComplete = _isComplete;
     }
 
     //methods

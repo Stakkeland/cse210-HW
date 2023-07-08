@@ -8,13 +8,18 @@ public class ChecklistGoal : Goal
     //constructor
     public ChecklistGoal(string name, string description, string points, int target, int bonus) : base(name, description,points)
     {
-        
+
     }
 
     //methods
     public override void RecordEvent()
     {
+        List<string> records = new List<string>();
+        string entryAsCSV = ($"{GetName()}|{GetDescription()}|{GetPoints()}|false|{_target}|{_bonus}");
+        records.Add(entryAsCSV);
 
+
+        File.WriteAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);
     }
     public override bool IsComplete()
     {
