@@ -17,7 +17,7 @@ public class Goal
     public virtual void RecordEvent()
     {
         List<string> records = new List<string>();
-        string entryAsCSV = ($"{_shortName}|{_description}|{_points}|false|placeholder|placeholder");
+        string entryAsCSV = ($"{_shortName}|{_description}|{_points}|false|placeholder|placeholder|placeholder");
         records.Add(entryAsCSV);
 
         File.AppendAllLines(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", records);

@@ -134,18 +134,19 @@ public class GoalManager
         {
             string[] parts = line.Split("|");
 
-            string name = parts[0];
-            string description = parts[1];
-            string completions = parts[4];
-            string target = parts[5];
+            string checklist = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            string completions = parts[5];
+            string target = parts[6];
             bool present = target.Contains("placeholder");
             if (present == true)
             {
-                Console.WriteLine($"- [ ] {name} ({description})");
+                Console.WriteLine($"-{checklist}{name} ({description})");
             }
             else
             {
-                Console.WriteLine($"- [ ] {name} ({description}) -- Currently completed: {completions}/{target}");
+                Console.WriteLine($"-{checklist}{name} ({description}) -- Currently completed: {completions}/{target}");
             }
 
         }
@@ -170,9 +171,9 @@ public class GoalManager
         {
             string[] parts = line.Split("|");
 
-            string name = parts[0];
-            string points = parts[2];
-            string completions = parts[4];
+            string name = parts[1];
+            string points = parts[3];
+            string completions = parts[5];
             addingPoints.Add(name, points);
 
             Console.WriteLine($"- {name}");
@@ -185,8 +186,8 @@ public class GoalManager
         {
             string[] parts = line.Split("|");
 
-            string name = parts[0];
-            string completions = parts[4];
+            string name = parts[1];
+            string completions = parts[5];
             if (completions == "placeholder")
             {
                 
@@ -199,15 +200,13 @@ public class GoalManager
                 {
                     int  newCompletions = completionsInt + 1;
                     string convertedCompletions = newCompletions.ToString();
-                    //string text = File.ReadAllText("points.txt");
-                    //line.Replace(completions, convertedCompletions);
-                    //File.WriteAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", line);
 
                     string str = File.ReadAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt");
                     str = str.Replace(completions,convertedCompletions);
                     File.WriteAllText(@"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\2023 Spring\Classes\cse210-HW\prove\Develop05\points.txt", str);
                 }
             }
+
         }
 
         foreach(KeyValuePair<string, string> ele1 in addingPoints)
@@ -228,6 +227,10 @@ public class GoalManager
                 Console.WriteLine($"Congratulations! you have earned {addedpoints} points");
             }
         }
+
+        ChecklistGoal cg2 = new ChecklistGoal("0","0","0",0,0,0);
+        cg2.CompleteChecklist();
+
     }
     public void SaveGoals()
     {
