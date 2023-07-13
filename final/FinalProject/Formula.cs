@@ -15,10 +15,12 @@ public class Formula
 
     }
 
-    public void Formulate(int LB, double SB)
+    public int Formulate(int LB, double SB)
     {
         double convertToLarge = SB * 0.625;
         int largeConverted = Convert.ToInt32(convertToLarge);
         int totalBags = largeConverted + LB;
+
+        return totalBags;
     }
 }
