@@ -46,4 +46,13 @@ public class Menu
 
         }
     }
+
+    public int GetLargeB()
+    {
+        return _largeB;
+    }
+    public int GetSmallB()
+    {
+        return _smallB;
+    }
 }
