@@ -36,6 +36,9 @@ public class Menu
                 Console.Write("5 oz bag quantity >");
                 int smallBString = Convert.ToInt32(Console.ReadLine());
                 _smallB = smallBString;
+
+                Formula f1 = new Formula();
+                f1.GetBags();
             }
 
             else
