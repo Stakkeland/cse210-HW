@@ -1,2 +1,0 @@
-[s]|program|programming|5|false|placeholder|placeholder|placeholder
-[c]|workout|workingout|3|false|0|2|55
