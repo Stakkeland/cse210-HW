@@ -11,11 +11,11 @@ public class Formula
         int LB = m1.GetLargeB();
         double SB = m1.GetSmallB();
 
-        Formulate(LB, SB);
+        GetTotalBags(LB, SB);
 
     }
 
-    public int Formulate(int LB, double SB)
+    public int GetTotalBags(int LB, double SB)
     {
         double convertToLarge = SB * 0.625;
         int largeConverted = Convert.ToInt32(convertToLarge);
