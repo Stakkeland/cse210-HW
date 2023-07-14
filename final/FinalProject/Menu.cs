@@ -1,11 +1,12 @@
-public class Menu
+public class Menu 
 {
-    private int _largeB;
-    private int _smallB;
+    protected int _largeB;
+    protected int _smallB;
 
-    public Menu()
+    public Menu(int largeB, int smallB)
     {
-
+        _largeB = largeB;
+        _smallB = smallB;
     }
 
     public void Run()
@@ -22,7 +23,6 @@ public class Menu
         while (userInput != "2")
         {
 
-            Console.Clear();
             Console.Write(multiline);
             userInput = Console.ReadLine();
 
@@ -37,7 +37,7 @@ public class Menu
                 int smallBString = Convert.ToInt32(Console.ReadLine());
                 _smallB = smallBString;
 
-                Formula f1 = new Formula();
+                Formula f1 = new Formula(_largeB, _smallB);
                 f1.GetBags();
             }
 

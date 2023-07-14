@@ -1,17 +1,17 @@
-public class Formula
+public class Formula : Menu
 {
-    public Formula()
+    public Formula(int largeB, int smallB) : base(largeB, smallB)
     {
-
+        largeB = _largeB;
+        smallB = _smallB;
     }
 
     public void GetBags()
     {
-        Menu m1 = new Menu();
-        int LB = m1.GetLargeB();
-        double SB = m1.GetSmallB();
+        double SB = Convert.ToDouble(_smallB);
 
-        GetTotalBags(LB, SB);
+        Boxes b1 = new Boxes();
+        b1.GetBoxesTotal(GetTotalBags(_largeB, SB));
 
     }
 
