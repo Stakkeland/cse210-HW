@@ -35,15 +35,15 @@ public class Boxes
 
         while (bagsAccounted != 0)
         {
-           if (bagsAccounted > _fundraiserB)
+           if (bagsAccounted > _largeB && bagsAccounted <= _fundraiserB)
            {
                 bagsAccounted = bagsAccounted - _fundraiserB;
                 Boxes.Add("Fundraiser Box");  
            }
            else if(bagsAccounted > _largeB)
            {
-                bagsAccounted = bagsAccounted - _fundraiserB;
-                Boxes.Add("Fundraiser Box");  
+                bagsAccounted = bagsAccounted - _largeB;
+                Boxes.Add("Large Box");  
            }
             else if(bagsAccounted > _18x14x12)
            {
