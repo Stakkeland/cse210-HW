@@ -14,19 +14,21 @@ public class Menu
         string userInput = " ";
 
         string multiline = 
-        @"Killian Korn Ship Aide:
-        1.Use
-        2.Exit
-        >";
+@"
+
+Killian Korn Ship Aide:
+-Press Enter to start
+-Type 'quit' to end
+>";
         
 
-        while (userInput != "2")
+        while (userInput != "quit")
         {
 
             Console.Write(multiline);
             userInput = Console.ReadLine();
 
-            if (userInput != "2")
+            if (userInput != "quit")
             {
                 Console.Clear();
                 Console.WriteLine("Enter Bag Amount");
